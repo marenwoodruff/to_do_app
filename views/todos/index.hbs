@@ -1,8 +1,10 @@
 {{#if todos.length}}
   <h1> Todos </h1>
+  <br />
   <ul>
     {{#each todos}}
       <li>Description: <a href="/todos/{{@index}}">{{description}}</a></li>
+      <li>{{location}}</li>
       <li>Urgent: {{urgent}}</li>
       <br>
     {{/each}}
