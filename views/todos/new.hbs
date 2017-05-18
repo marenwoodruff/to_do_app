@@ -1,0 +1,18 @@
+<h1>Create a New Todo!</h1>
+
+<div class="row">
+  <form action="/todos" method="POST" class="col-md-6 col-md-offset-3">
+    <div class="form-group">
+      <label for="description">description:</label>
+      <input type="text" name="description" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="urgent">urgent:</label>
+      <span>yes</span><input type="radio" name="urgent" value="true" checked>
+      <span>no</span><input type="radio" name="urgent" value="false">
+    </div>
+    <div>
+      <input type="submit" value="Add a New Todo" class="btn btn-default">
+    </div>
+  </form>
+</div>
