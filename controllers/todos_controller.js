@@ -1,4 +1,6 @@
+// requiring express package- how you are able to access express methods within this file
 var express = require('express');
+
 var router = express.Router();
 var data = require('../data.js');
 
@@ -15,6 +17,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res){
   var newTodo = {
         description: req.body.description,
+        location: req.body.location,
         urgent: req.body.urgent
     };
 
@@ -38,4 +41,48 @@ router.get('/:id', function(req, res) {
 
 });
 
+/* EDIT TODO */
+router.get('/:id/edit', function(req, res) {
+  res.render('todos/edit', {
+    todo: {
+      description: data.seededTodos[req.params.id].description,
+      location: data.seededTodos[req.params.id].location,
+      urgent: data.seededTodos[req.params.id].urgent,
+      id: req.params.id
+    }
+  });
+});
+
+/* UPDATE TODO */
+router.put('/:id', function(req, res) {
+  var todoToEdit = data.seededTodos[req.params.id];
+
+  todoToEdit.description = req.body.description;
+  todoToEdit.location = req.body.location;
+  todoToEdit.urgent = req.body.urgent;
+
+  res.redirect('/todos');
+});
+
+/* DELETE TODO */
+router.delete('/:id', function(req, res) {
+  data.seededTodos.splice(req.params.id, 1);
+
+  res.redirect('/todos');
+});
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
