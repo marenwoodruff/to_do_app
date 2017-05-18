@@ -3,7 +3,7 @@ var router = express.Router();
 var data = require('../data.js');
 
 /* INDEX TODOS */
-router.get('/', function(req,res) {
+router.get('/', function(req, res) {
 
   res.render('todos/index', {
     todos: data.seededTodos
@@ -29,7 +29,7 @@ router.get('/new', function(req, res){
 });
 
 /* SHOW TODO */
-router.get('/:id', function(req,res) {
+router.get('/:id', function(req, res) {
   var todo = data.seededTodos[req.params.id];
 
   res.render('todos/show', {
