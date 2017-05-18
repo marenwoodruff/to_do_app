@@ -1,8 +1,14 @@
-<h1> Todos </h1>
-<ul>
-  {{#each todos}}
-    <li>Description: {{description}}</li>
-    <li>Urgent: {{urgent}}</li>
-    <br>
-  {{/each}}
-</ul>
+{{#if todos.length}}
+  <h1> Todos </h1>
+  <ul>
+    {{#each todos}}
+      <li>Description: <a href="/todos/{{@index}}">{{description}}</a></li>
+      <li>Urgent: {{urgent}}</li>
+      <br>
+    {{/each}}
+  </ul>
+{{else}}
+  <h1>You haven't added any todos yet!  Click on the link below to add a new todo! </h1>
+{{/if}}
+
+<a class="btn btn-default" href="\todos\new">Add a New Todo</a>

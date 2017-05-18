@@ -24,7 +24,8 @@ app.use('/todos', todosController);
 
 /* HOME */
 app.get('/', function(req,res) {
-  res.send('This is our Home Page');
+  // res.send('This is our Home Page');
+  res.render('welcome');
 });
 
 // Start server

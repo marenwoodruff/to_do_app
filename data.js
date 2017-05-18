@@ -4,8 +4,8 @@ module.exports = {
       description: "walk Diesel",
       urgent: true
     }, {
-      description: "get ice cream",
-      urgent: false
+      description: "get coffee",
+      urgent: true
     }
   ]
 };
